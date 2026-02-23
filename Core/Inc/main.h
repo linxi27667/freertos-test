@@ -40,12 +40,17 @@ extern "C" {
 #include "queue.h"
 #include "semphr.h"
 #include "elog.h"
-#include "key.h"
 #include "tim.h"
+#include "lcd.h"
+#include "usart.h"
+
+#include "bsp_key.h"
+#include "bsp_led.h"
+#include "bsp_uart.h"
+
 #include "pwm_task.h"
 #include "screen_task.h"
-#include "led.h"
-#include "usart.h"
+#include "serial_task.h"
 
 /* USER CODE END Includes */
 

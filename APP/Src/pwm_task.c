@@ -26,10 +26,10 @@ void Pwm_Task(void *pvParameters)
 
 void Pwm_Task_Init(void)
 {
-//    BaseType_t temp;
-//    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
-//    temp = xTaskCreate(Pwm_Task, "Pwm_Task", 256, NULL, 2, &Pwm_Task_Handle);
-//    if(temp != pdPASS)
+//    BaseType_t rusult;
+    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
+//    rusult = xTaskCreate(Pwm_Task, "Pwm_Task", 256, NULL, 2, &Pwm_Task_Handle);
+//    if(rusult != pdPASS)
 //    {
 //        elog_e("pwm_task", "Pwm_Task create fail");
 //    }

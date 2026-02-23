@@ -107,9 +107,10 @@ int main(void)
 	
 	elog_start();
 
-  Key_Init();
   Led_Init(my_led);
+  #if (DEBUG_MODE == 1)
   elog_i("Hardware", "key_init_successful");
+  #endif
   /* USER CODE END 2 */
 
   /* Init scheduler */

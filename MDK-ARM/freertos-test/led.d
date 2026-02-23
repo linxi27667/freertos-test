@@ -53,8 +53,9 @@ freertos-test\led.o: ../RTT_easylog/easylogger/inc/elog_cfg.h
 freertos-test\led.o: ../BSP/Inc/key.h
 freertos-test\led.o: ../Core/Inc/main.h
 freertos-test\led.o: ../Core/Inc/tim.h
+freertos-test\led.o: ../BSP/Inc/led.h
+freertos-test\led.o: ../Core/Inc/usart.h
 freertos-test\led.o: ../APP/Inc/pwm_task.h
 freertos-test\led.o: ../APP/Inc/screen_task.h
 freertos-test\led.o: ../BSP/Inc/lcd.h
-freertos-test\led.o: ../BSP/Inc/led.h
-freertos-test\led.o: ../Core/Inc/usart.h
+freertos-test\led.o: ../APP/Inc/serial_task.h

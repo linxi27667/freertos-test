@@ -1,14 +1,20 @@
 #include "screen_task.h"
 
-#define PASSWORD "111"
 TaskHandle_t screen_task_handle;
 lcd_judge_t lcd_judge = lcd_state_1;
 uint8_t temp_arr[20];
 
-uint8_t f_pwm = 0;
+uint8_t old_password[4] = {'1', '1', '1', '\0'};
+uint8_t current_password[4] = {'1', '1', '1', '\0'};
 
-void Password_init(void)
+uint8_t f_pwm = 0;
+uint8_t f_lcd_updata = 0;
+
+void Password_init(uint8_t *p_B1, uint8_t *p_B2, uint8_t *p_B3)
 {
+    *p_B1 = 0;
+    *p_B2 = 0;
+    *p_B3 = 0;
     LCD_Clear(Black);
     LCD_DisplayStringLine(Line2, (uint8_t *)"       PSD");
     sprintf((char *)temp_arr, "    B1: @");
@@ -44,7 +50,7 @@ void Screen_Task(void *pvParameters)
     uint8_t B3 = 0;
     Set_Pwm();
     char password[4] = {'0', '0', '0', '\0'};
-    Password_init();
+    Password_init(&B1, &B2, &B3);
     LCD_DisplayStringLine(Line2, (uint8_t *)"       PSD");
     while(1)
     {
@@ -93,21 +99,23 @@ void Screen_Task(void *pvParameters)
             }
               if(my_key[3].f_push == 1)
               {
-
-                if(strcmp(password, PASSWORD) == 0)
+                if(strcmp(password, (char *)current_password) == 0)
                 {
                     lcd_judge = lcd_state_2;
                     LCD_Clear(Black);
                     f_pwm = 1;
                     Set_Pwm();
                     Led_On(&my_led[1]);
+                    elog_a("screen_task:", "password is correct");
                 }
                 else
                 {
                     B1 = B2 = B3 = 0;
-                    Password_init();
+                    Password_init(&B1, &B2, &B3);
                     f_pwm = 0;
                     Set_Pwm();
+                    Led_On(&my_led[0]);
+                    elog_e("screen_task:", "password is incorrect");
                 }
                 my_key[3].f_push = 0;
               }
@@ -115,13 +123,67 @@ void Screen_Task(void *pvParameters)
 					}
             case lcd_state_2:
 						{
-                LCD_DisplayStringLine(Line2, (uint8_t *)"       STA");
-                sprintf((char*)temp_arr, "    F:%dHZ", 2000);
-                LCD_DisplayStringLine(Line4, (uint8_t *)temp_arr);
-                sprintf((char*)temp_arr, "    D:%d%%", 10);
-                LCD_DisplayStringLine(Line5, (uint8_t *)temp_arr);
+              if(my_key[3].f_push == 1)
+              {
+                lcd_judge = lcd_state_1;
+                LCD_Clear(Black);
+                Password_init(&B1, &B2, &B3);
+                my_key[3].f_push = 0;
+                break;
+              }
+              if(f_pwm == 0)
+              {
+                if(f_lcd_updata == 0)
+                {
+                  elog_a("DEBUG", "ERRRRRRRRR");
+                  LCD_DisplayStringLine(Line2, (uint8_t *)"       STA");
+                  sprintf((char*)temp_arr, "    F:%dHZ", 1000);
+                  LCD_DisplayStringLine(Line4, (uint8_t *)temp_arr);
+                  sprintf((char*)temp_arr, "    D:%d%%", 50);
+                  LCD_DisplayStringLine(Line5, (uint8_t *)temp_arr);
+                  f_lcd_updata = 1;
+              }
+                
+              }
+              else
+              {
+                lcd_judge = lcd_state_3;
+                f_lcd_updata = 0;
+                LCD_Clear(Black);
+              }
                 break;
 						}
+						
+            case lcd_state_3:
+            {
+              if(my_key[3].f_push == 1)
+              {
+                lcd_judge = lcd_state_1;
+                LCD_Clear(Black);
+                Password_init(&B1, &B2, &B3);
+                my_key[3].f_push = 0;
+                break;
+              }
+              if(f_pwm == 1)
+              {
+                if(f_lcd_updata == 0)
+                {
+                  LCD_DisplayStringLine(Line2, (uint8_t *)"       STA");
+                  sprintf((char*)temp_arr, "    F:%dHZ", 2000);
+                  LCD_DisplayStringLine(Line4, (uint8_t *)temp_arr);
+                  sprintf((char*)temp_arr, "    D:%d%%", 10);
+                  LCD_DisplayStringLine(Line5, (uint8_t *)temp_arr);
+                  f_lcd_updata = 1;
+                 }
+              }
+              else
+              {
+                lcd_judge = lcd_state_2;
+                f_lcd_updata = 0;
+                LCD_Clear(Black);
+              }
+              break;
+            }
         }
         #if (DEBUG_MODE == 1)
 				elog_i("task", "screen_task running");
@@ -132,15 +194,15 @@ void Screen_Task(void *pvParameters)
 
 void Screen_Task_Init(void)
 {
-    BaseType_t temp;
+    BaseType_t rusult;
 
     LCD_Init();
     LCD_Clear(Black);
     LCD_SetBackColor(Black);
     LCD_SetTextColor(White);
 
-    temp = xTaskCreate(Screen_Task, "screen_task", 256, NULL, 2, &screen_task_handle);
-    if(temp != pdPASS)
+    rusult = xTaskCreate(Screen_Task, "screen_task", 256, NULL, 2, &screen_task_handle);
+    if(rusult != pdPASS)
     {
         elog_e("task", "Creat Error");
     }

@@ -1013,24 +1013,34 @@
               <FilePath>..\BSP\Inc\fonts.h</FilePath>
             </File>
             <File>
-              <FileName>key.c</FileName>
+              <FileName>bsp_key.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\BSP\Src\key.c</FilePath>
+              <FilePath>..\BSP\Src\bsp_key.c</FilePath>
             </File>
             <File>
-              <FileName>key.h</FileName>
+              <FileName>bsp_key.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\BSP\Inc\key.h</FilePath>
+              <FilePath>..\BSP\Inc\bsp_key.h</FilePath>
             </File>
             <File>
-              <FileName>led.c</FileName>
+              <FileName>bsp_led.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\BSP\Src\led.c</FilePath>
+              <FilePath>..\BSP\Src\bsp_led.c</FilePath>
             </File>
             <File>
-              <FileName>led.h</FileName>
+              <FileName>bsp_led.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\BSP\Inc\led.h</FilePath>
+              <FilePath>..\BSP\Inc\bsp_led.h</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\BSP\Src\bsp_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_uart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\BSP\Inc\bsp_uart.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1051,6 +1061,16 @@
               <FileName>elog_utils.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\RTT_easylog\easylogger\src\elog_utils.c</FilePath>
+            </File>
+            <File>
+              <FileName>elog_async.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\RTT_easylog\easylogger\src\elog_async.c</FilePath>
+            </File>
+            <File>
+              <FileName>elog_buf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\RTT_easylog\easylogger\src\elog_buf.c</FilePath>
             </File>
             <File>
               <FileName>SEGGER_RTT.c</FileName>

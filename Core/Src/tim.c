@@ -23,8 +23,8 @@
 /* USER CODE BEGIN 0 */
 #include "main.h"
 
-uint8_t pwm_count;
-uint8_t led_count;
+uint16_t pwm_count;
+uint16_t led_count;
 /* USER CODE END 0 */
 
 TIM_HandleTypeDef htim2;
@@ -286,18 +286,19 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
           pwm_count++;
           led_count++;
           //elog_a("pwm_count", "%ds", pwm_count/100);
-          if(pwm_count >= 500)
+          if(pwm_count > 500)
           {
             pwm_count = 0;
             f_pwm = 0;
             Set_Pwm();
           }
-          if(led_count >= 500)
+          if(led_count > 500)
           {
             led_count = 0;
             Led_Off(&my_led[1]);
           }
         }
+        
         Key_Scan(my_key);
     }
 }

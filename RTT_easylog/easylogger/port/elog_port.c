@@ -32,6 +32,7 @@
 #include "SEGGER_RTT.h"
 #include "stm32g4xx_hal.h"
 #include "usart.h"
+#include "main.h"
 
 
 extern UART_HandleTypeDef huart1;
@@ -67,6 +68,7 @@ void elog_port_deinit(void) {
 void elog_port_output(const char *log, size_t size) {
     
     /* add your code here */
+
     HAL_UART_Transmit(&huart1, (uint8_t *)log, size, 0xFFFF);
     
     //SEGGER_RTT_Write(0, log, size);

@@ -73,12 +73,12 @@ void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
   */
 void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
-	
   Screen_Task_Init();
   Pwm_Task_Init();
   Key_Task_Init();
-	Uart1_Init();
 	Serial_Task_Init();
+
+
   /* USER CODE END Init */
 
   /* USER CODE BEGIN RTOS_MUTEX */

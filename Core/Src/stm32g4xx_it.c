@@ -206,11 +206,15 @@ void PVD_PVM_IRQHandler(void)
 void DMA1_Channel1_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Channel1_IRQn 0 */
+  #if (DEBUG_MODE == 1)
   elog_a("IRQ", "DMA1_Channel1_IRQHandler entered");
+  #endif
   /* USER CODE END DMA1_Channel1_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_usart1_rx);
   /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
+  #if (DEBUG_MODE == 1)
   elog_a("IRQ", "DMA1_Channel1_IRQHandler exit");
+  #endif
   /* USER CODE END DMA1_Channel1_IRQn 1 */
 }
 

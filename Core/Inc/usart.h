@@ -35,17 +35,13 @@ extern "C" {
 extern UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN Private defines */
-#define UART1_RX_BUF_SIZE 256
+
 /* USER CODE END Private defines */
 
 void MX_USART1_UART_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-extern uint8_t uart1_rx_buf[UART1_RX_BUF_SIZE];
-extern uint8_t uart1_rx_len;
-extern SemaphoreHandle_t xUart1RxSemaphore;
 
-void Uart1_Init(void);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

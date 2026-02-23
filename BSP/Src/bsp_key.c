@@ -1,4 +1,4 @@
-#include "key.h"
+#include "bsp_key.h"
 
 key_t my_key[MAX_KEY_NUM] = 
 {
@@ -11,6 +11,7 @@ key_t my_key[MAX_KEY_NUM] =
 void Key_Init(void)
 {
     HAL_TIM_Base_Start_IT(&htim6);
+
     /*__HAL_RCC_GPIOA_CLK_ENABLE();
     __HAL_RCC_GPIOB_CLK_ENABLE();
     __HAL_RCC_GPIOC_CLK_ENABLE();
@@ -39,7 +40,9 @@ void Key_Scan(key_t *key)
             case KEY_JUDGE_IDLE:
                 if(key[i].state == KEY_PRESS)
                 {
+                        #if (DEBUG_MODE == 1)
                         elog_i("key", "key %d push GO TO KEY_JUDGE_PRESS", i);
+                        #endif
                         key[i].judge = KEY_JUDGE_PRESS;
                 }
                 break;
@@ -47,13 +50,17 @@ void Key_Scan(key_t *key)
             case KEY_JUDGE_PRESS:
                 if(key[i].state == KEY_PRESS)
                 {
+                    #if (DEBUG_MODE == 1)
                     elog_i("key", "key %d push GO TO KEY_JUDGE_LONGPUSH", i);
+                    #endif
                     key[i].judge = KEY_JUDGE_LONGPUSH;   
                     key[i].longpush_time = 0;
                 }
                 else
                 {
+                    #if (DEBUG_MODE == 1)
                     elog_e("key", "key %d release GO TO KEY_JUDGE_IDLE", i);
+                    #endif
                     key[i].judge = KEY_JUDGE_IDLE;
                 }
                 break;
@@ -67,7 +74,9 @@ void Key_Scan(key_t *key)
                         key[i].longpush_time = 0;
                         key[i].judge = KEY_JUDGE_RELEASE;
                         key[i].f_longpush = KEY_EVENT_LONGPUSH;
+                        #if (DEBUG_MODE == 1)
                         elog_a("key", "key %d KEY_EVENT_LONGPUSH", i);
+                        #endif
                     }
                 }
                 else if(key[i].state == KEY_RELEASE)
@@ -75,7 +84,9 @@ void Key_Scan(key_t *key)
                     key[i].longpush_time = 0;
                     key[i].doubleclick_time = 0;
                     key[i].judge = KEY_JUDGE_DOUBLECLICK;
+                    #if (DEBUG_MODE == 1)
                     elog_i("key", "key %d GO TO KEY_JUDGE_DOUBLECLICK", i);
+                    #endif
                 }
                 break;
 
@@ -86,14 +97,18 @@ void Key_Scan(key_t *key)
                     key[i].judge = KEY_JUDGE_RELEASE;
                     key[i].doubleclick_time = 0;
                     key[i].f_doubleclick = KEY_EVENT_DOUBLECLICK;
+                    #if (DEBUG_MODE == 1)
                     elog_a("key", "key %d KEY_EVENT_DOUBLECLICK", i);
+                    #endif
                 }
                 else if(key[i].state == KEY_RELEASE && key[i].doubleclick_time > KEY_DOUBLECLICK_TIMEOUT)
                 {
                     key[i].judge = KEY_JUDGE_IDLE;
                     key[i].doubleclick_time = 0;
                     key[i].f_push = KEY_EVENT_PUSH;
+                    #if (DEBUG_MODE == 1)
                     elog_a("key", "key %d KEY_EVENT_PUSH", i);
+                    #endif
                 }
                 break;
 
@@ -101,7 +116,9 @@ void Key_Scan(key_t *key)
                 if(key[i].state == KEY_RELEASE)
                 {
                     key[i].judge = KEY_JUDGE_IDLE;
+                    #if (DEBUG_MODE == 1)
                     elog_a("key", "key %d release KEY_RELEASE", i);
+                    #endif
                 }
                 break;
         }

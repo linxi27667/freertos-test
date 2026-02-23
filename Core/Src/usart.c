@@ -21,9 +21,8 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
-uint8_t uart1_rx_buf[UART1_RX_BUF_SIZE];
-uint8_t uart1_rx_len= 0;
-SemaphoreHandle_t xUart1RxSemaphore = NULL;
+QueueHandle_t g_uart1_rx_queue_handle = NULL;
+uint8_t g_uart1_rx_dma_buf[UART1_RX_BUF_SIZE];
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart1;
@@ -165,41 +164,28 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
-void Uart1_Init(void)
-{
-    elog_a("UART", "Before xSemaphoreCreateBinary");
-    xUart1RxSemaphore = xSemaphoreCreateBinary(); //创建二进制信号量
-    if(xUart1RxSemaphore == NULL)
-    {
-        elog_a("UART", "Semaphore create FAILED!");
-        return;
-    }
-		else
-		{
-				elog_a("UART", "Semaphore created OK");
-		}
-		
-    HAL_StatusTypeDef status = HAL_UARTEx_ReceiveToIdle_DMA(&huart1, uart1_rx_buf, UART1_RX_BUF_SIZE); //使能DMA接收 并设置接收缓冲区 为uart1_rx_buf 接收长度为UART1_RX_BUF_SIZE 当接收完成时触发中断 并将接收完成的字节数存储在uart1_rx_len中
-    if(status != HAL_OK)
-    {
-        elog_a("UART", "DMA init failed: %d", status);
-    }
-    else
-    {
-        elog_a("UART", "DMA init success");
-    }
-}
-
 void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t size)
 {
     if(huart->Instance == USART1)
     {
-        uart1_rx_len = size;
-        elog_a("callback", "received %d bytes", size);
-        BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-        xSemaphoreGiveFromISR(xUart1RxSemaphore, &xHigherPriorityTaskWoken);
-        portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
-        HAL_UARTEx_ReceiveToIdle_DMA(&huart1, uart1_rx_buf, UART1_RX_BUF_SIZE);
+       uart_rx_msg_t rx_msg;
+       uint16_t copy_size = (size < UART1_RX_BUF_SIZE) ? size : UART1_RX_BUF_SIZE;
+       rx_msg.len = copy_size;
+       memcpy(rx_msg.data, g_uart1_rx_dma_buf, copy_size);
+
+       BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+       xQueueSendFromISR(g_uart1_rx_queue_handle, &rx_msg, &xHigherPriorityTaskWoken);
+       portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+
+       HAL_UARTEx_ReceiveToIdle_DMA(&huart1, g_uart1_rx_dma_buf, UART1_RX_BUF_SIZE);
     }
 }
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
+    if (huart->Instance == USART1) 
+    {
+       
+    }
+}
+
 /* USER CODE END 1 */

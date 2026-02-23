@@ -11,7 +11,8 @@
 typedef enum lcd_judge
 {
     lcd_state_1 = 0,
-    lcd_state_2 = 1
+    lcd_state_2 = 1,
+    lcd_state_3 = 2
 }lcd_judge_t;
 
 void Screen_Task(void *pvParameters);
@@ -19,5 +20,7 @@ void Screen_Task_Init(void);
 void Set_Pwm(void);
 
 extern uint8_t f_pwm;
+extern uint8_t old_password[4];
+extern uint8_t current_password[4];
 
 #endif
