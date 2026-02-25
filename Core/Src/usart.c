@@ -23,9 +23,11 @@
 /* USER CODE BEGIN 0 */
 #define RX_MAXSIZE 128
 
+uint8_t rx_data;
 uint8_t rx_buf[RX_MAXSIZE];
 uint8_t rx_size = 0;
 uint8_t rx_index = 0;
+uint8_t rx_timeout = 0;
 uint8_t f_rx_ready = 0;
 /* USER CODE END 0 */
 
@@ -189,35 +191,13 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
     if(huart->Instance == USART1)
     {
-				//elog_a("uart", "%c", rx_buf[rx_index]);
-        // 1. 防溢出保护：如果数据长度快超标了还没遇到 \r\n，强制清零，防止越界死机
-        if (rx_index >= RX_MAXSIZE - 1) 
-        {
-            rx_index = 0; 
-        }
-
-        // 2. 检测结束符
-        if(rx_buf[rx_index - 1] == '\r' && rx_buf[rx_index] == '\n' )
-        {
-            // 3. 过滤空包：只有当确实收到有效字符时，才认为是一帧完整数据
-            // 这完美解决了 Windows 串口助手 "\r\n" 连发导致的两次触发问题
-            if (rx_index > 0) 
-            {
-                rx_buf[rx_index - 1] = '\0'; // 关键优化：把 \r 替换为字符串结束符
-                rx_size = rx_index;      // 记录真实长度
-                f_rx_ready = 1;          // 通知主循环处理
-            }
-            rx_index = 0; // 复位索引，准备接收下一帧的首字节
-        }
-        else 
-        {
-            rx_index++; // 正常接收下一个字节
-        }
+			if(rx_index < RX_MAXSIZE -1)
+			{
+				rx_buf[rx_index++] = rx_data;
+			}
+			rx_timeout = 0;
     }
-    
-    // 4. 无论是否遇到换行符，都必须重新开启接收！绝对不能被 return 掉！
-    // 此时的 rx_index 已经是处理过的了，逻辑非常安全
-    HAL_UART_Receive_IT(&huart1, &rx_buf[rx_index], 1);
+    HAL_UART_Receive_IT(&huart1, &rx_data, 1);
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){

@@ -30,7 +30,7 @@ void Uart_Init(void)
 //        #endif
 //    }
 
-	HAL_UART_Receive_IT(&huart1, &rx_buf[rx_index], 1);
+	HAL_UART_Receive_IT(&huart1, &rx_data, 1);
 	HAL_TIM_Base_Start_IT(&htim7);
 }
 

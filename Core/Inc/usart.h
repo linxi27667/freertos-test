@@ -38,7 +38,9 @@ extern UART_HandleTypeDef huart1;
 extern uint8_t rx_buf[128];
 extern uint8_t rx_size;
 extern uint8_t rx_index;
+extern uint8_t rx_data;
 extern uint8_t f_rx_ready;
+extern uint8_t rx_timeout;
 /* USER CODE END Private defines */
 
 void MX_USART1_UART_Init(void);
