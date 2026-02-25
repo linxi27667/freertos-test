@@ -35,7 +35,10 @@ extern "C" {
 extern UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN Private defines */
-
+extern uint8_t rx_buf[128];
+extern uint8_t rx_size;
+extern uint8_t rx_index;
+extern uint8_t f_rx_ready;
 /* USER CODE END Private defines */
 
 void MX_USART1_UART_Init(void);

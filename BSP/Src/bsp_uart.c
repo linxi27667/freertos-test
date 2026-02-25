@@ -2,33 +2,36 @@
 
 void Uart_Init(void)
 {
-    #if (DEBUG_MODE == 1)
-    elog_a("UART", "Before xQueueCreate");
-    #endif
-    g_uart1_rx_queue_handle = xQueueCreate(5, sizeof(uart_rx_msg_t));
-    if(g_uart1_rx_queue_handle == NULL)
-    {
-        elog_a("UART", "Queue create FAILED!");
-        return;
-    }
-    else
-    {
-        #if (DEBUG_MODE == 1)
-        elog_a("UART", "Queue created OK");
-        #endif
-    }
-    
-    HAL_StatusTypeDef status = HAL_UARTEx_ReceiveToIdle_DMA(&huart1, g_uart1_rx_dma_buf, UART1_RX_BUF_SIZE);
-    if(status != HAL_OK)
-    {
-        elog_a("UART", "DMA init failed: %d", status);
-    }
-    else
-    {
-        #if (DEBUG_MODE == 1)
-        elog_a("UART", "DMA init success");
-        #endif
-    }
+//    #if (DEBUG_MODE == 1)
+//    elog_a("UART", "Before xQueueCreate");
+//    #endif
+//    g_uart1_rx_queue_handle = xQueueCreate(5, sizeof(uart_rx_msg_t));
+//    if(g_uart1_rx_queue_handle == NULL)
+//    {
+//        elog_a("UART", "Queue create FAILED!");
+//        return;
+//    }
+//    else
+//    {
+//        #if (DEBUG_MODE == 1)
+//        elog_a("UART", "Queue created OK");
+//        #endif
+//    }
+//    
+//    HAL_StatusTypeDef status = HAL_UARTEx_ReceiveToIdle_DMA(&huart1, g_uart1_rx_dma_buf, UART1_RX_BUF_SIZE);
+//    if(status != HAL_OK)
+//    {
+//        elog_a("UART", "DMA init failed: %d", status);
+//    }
+//    else
+//    {
+//        #if (DEBUG_MODE == 1)
+//        elog_a("UART", "DMA init success");
+//        #endif
+//    }
+
+	HAL_UART_Receive_IT(&huart1, &rx_buf[rx_index], 1);
+	HAL_TIM_Base_Start_IT(&htim7);
 }
 
 // 定义在 bsp_uart.c 或 elog_port.c

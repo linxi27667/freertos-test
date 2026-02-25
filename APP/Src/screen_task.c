@@ -54,6 +54,28 @@ void Screen_Task(void *pvParameters)
     LCD_DisplayStringLine(Line2, (uint8_t *)"       PSD");
     while(1)
     {
+				if(f_rx_ready == 1)
+			{
+				uint8_t my_old_password[8];
+				uint8_t my_current_password[8];
+				if(sscanf((char *)rx_buf, "%3[^-]-%3s",(char *)my_old_password,(char *)my_current_password) == 2)
+				{
+					elog_a("PassWord", "my_current_password: %s", my_old_password);
+					elog_a("PassWord", "my_old_password: %s", my_current_password);
+					if(strcmp((char*)my_old_password, (char *)old_password) == 0)
+					{
+						strcpy((char*)current_password, (char*)my_current_password);
+						strcpy((char*)old_password, (char*)current_password);
+						elog_a("PassWord", "current_password: %s", current_password);
+					}
+					else
+					{
+						elog_e("PassWord", "old_password error");
+					}
+				}
+				f_rx_ready = 0;
+			}
+				
         switch(lcd_judge)
         {
             case lcd_state_1:

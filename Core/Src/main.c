@@ -108,6 +108,8 @@ int main(void)
 	elog_start();
 
   Led_Init(my_led);
+  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_2, GPIO_PIN_RESET);
   #if (DEBUG_MODE == 1)
   elog_i("Hardware", "key_init_successful");
   #endif

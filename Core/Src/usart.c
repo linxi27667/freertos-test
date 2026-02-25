@@ -21,8 +21,12 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
-QueueHandle_t g_uart1_rx_queue_handle = NULL;
-uint8_t g_uart1_rx_dma_buf[UART1_RX_BUF_SIZE];
+#define RX_MAXSIZE 128
+
+uint8_t rx_buf[RX_MAXSIZE];
+uint8_t rx_size = 0;
+uint8_t rx_index = 0;
+uint8_t f_rx_ready = 0;
 /* USER CODE END 0 */
 
 UART_HandleTypeDef huart1;
@@ -164,21 +168,56 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
-void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t size)
+//void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t size)
+//{
+//    if(huart->Instance == USART1)
+//    {
+//       uart_rx_msg_t rx_msg;
+//       uint16_t copy_size = (size < UART1_RX_BUF_SIZE) ? size : UART1_RX_BUF_SIZE;
+//       rx_msg.len = copy_size;
+//       memcpy(rx_msg.data, g_uart1_rx_dma_buf, copy_size);
+
+//       BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+//       xQueueSendFromISR(g_uart1_rx_queue_handle, &rx_msg, &xHigherPriorityTaskWoken);
+//       portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
+
+//       HAL_UARTEx_ReceiveToIdle_DMA(&huart1, g_uart1_rx_dma_buf, UART1_RX_BUF_SIZE);
+//    }
+//}
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
     if(huart->Instance == USART1)
     {
-       uart_rx_msg_t rx_msg;
-       uint16_t copy_size = (size < UART1_RX_BUF_SIZE) ? size : UART1_RX_BUF_SIZE;
-       rx_msg.len = copy_size;
-       memcpy(rx_msg.data, g_uart1_rx_dma_buf, copy_size);
+				//elog_a("uart", "%c", rx_buf[rx_index]);
+        // 1. 防溢出保护：如果数据长度快超标了还没遇到 \r\n，强制清零，防止越界死机
+        if (rx_index >= RX_MAXSIZE - 1) 
+        {
+            rx_index = 0; 
+        }
 
-       BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-       xQueueSendFromISR(g_uart1_rx_queue_handle, &rx_msg, &xHigherPriorityTaskWoken);
-       portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
-
-       HAL_UARTEx_ReceiveToIdle_DMA(&huart1, g_uart1_rx_dma_buf, UART1_RX_BUF_SIZE);
+        // 2. 检测结束符
+        if(rx_buf[rx_index - 1] == '\r' && rx_buf[rx_index] == '\n' )
+        {
+            // 3. 过滤空包：只有当确实收到有效字符时，才认为是一帧完整数据
+            // 这完美解决了 Windows 串口助手 "\r\n" 连发导致的两次触发问题
+            if (rx_index > 0) 
+            {
+                rx_buf[rx_index - 1] = '\0'; // 关键优化：把 \r 替换为字符串结束符
+                rx_size = rx_index;      // 记录真实长度
+                f_rx_ready = 1;          // 通知主循环处理
+            }
+            rx_index = 0; // 复位索引，准备接收下一帧的首字节
+        }
+        else 
+        {
+            rx_index++; // 正常接收下一个字节
+        }
     }
+    
+    // 4. 无论是否遇到换行符，都必须重新开启接收！绝对不能被 return 掉！
+    // 此时的 rx_index 已经是处理过的了，逻辑非常安全
+    HAL_UART_Receive_IT(&huart1, &rx_buf[rx_index], 1);
 }
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
