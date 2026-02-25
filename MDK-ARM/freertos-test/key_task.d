@@ -54,9 +54,9 @@ freertos-test\key_task.o: ../Core/Inc/tim.h
 freertos-test\key_task.o: ../Core/Inc/main.h
 freertos-test\key_task.o: ../BSP/Inc/lcd.h
 freertos-test\key_task.o: ../Core/Inc/usart.h
+freertos-test\key_task.o: ../BSP/Inc/bsp_uart.h
 freertos-test\key_task.o: ../BSP/Inc/bsp_key.h
 freertos-test\key_task.o: ../BSP/Inc/bsp_led.h
-freertos-test\key_task.o: ../BSP/Inc/bsp_uart.h
 freertos-test\key_task.o: ../APP/Inc/pwm_task.h
 freertos-test\key_task.o: ../APP/Inc/screen_task.h
 freertos-test\key_task.o: ../APP/Inc/serial_task.h

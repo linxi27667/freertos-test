@@ -53,10 +53,10 @@ I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../Core/Inc/tim.h)(0x699971D4)
 I (../BSP/Inc/lcd.h)(0x696939CF)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+I (../Core/Inc/usart.h)(0x699EC5EC)
+I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../BSP/Inc/bsp_key.h)(0x699730C4)
 I (../BSP/Inc/bsp_led.h)(0x6999709C)
-I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../APP/Inc/pwm_task.h)(0x69996FAB)
 I (../APP/Inc/screen_task.h)(0x699C039C)
 I (../APP/Inc/serial_task.h)(0x699BE6E1)
@@ -117,10 +117,10 @@ I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../Core/Inc/tim.h)(0x699971D4)
 I (../BSP/Inc/lcd.h)(0x696939CF)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+I (../Core/Inc/usart.h)(0x699EC5EC)
+I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../BSP/Inc/bsp_key.h)(0x699730C4)
 I (../BSP/Inc/bsp_led.h)(0x6999709C)
-I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../APP/Inc/pwm_task.h)(0x69996FAB)
 I (../APP/Inc/screen_task.h)(0x699C039C)
 I (../APP/Inc/serial_task.h)(0x699BE6E1)
@@ -176,10 +176,10 @@ I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../Core/Inc/tim.h)(0x699971D4)
 I (../BSP/Inc/lcd.h)(0x696939CF)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+I (../Core/Inc/usart.h)(0x699EC5EC)
+I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../BSP/Inc/bsp_key.h)(0x699730C4)
 I (../BSP/Inc/bsp_led.h)(0x6999709C)
-I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../APP/Inc/pwm_task.h)(0x69996FAB)
 I (../APP/Inc/screen_task.h)(0x699C039C)
 I (../APP/Inc/serial_task.h)(0x699BE6E1)
@@ -239,14 +239,14 @@ I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../Core/Inc/tim.h)(0x699971D4)
 I (../BSP/Inc/lcd.h)(0x696939CF)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+I (../Core/Inc/usart.h)(0x699EC5EC)
+I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../BSP/Inc/bsp_key.h)(0x699730C4)
 I (../BSP/Inc/bsp_led.h)(0x6999709C)
-I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../APP/Inc/pwm_task.h)(0x69996FAB)
 I (../APP/Inc/screen_task.h)(0x699C039C)
 I (../APP/Inc/serial_task.h)(0x699BE6E1)
-F (../Core/Src/tim.c)(0x699EBA1F)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../BSP/Inc -I ../BSP/Src -I ../APP/Inc -I ../APP/Src -I ../RTT_easylog/easylogger/inc -I ../RTT_easylog/easylogger/plugins -I ../RTT_easylog/easylogger/port -I ../RTT_easylog/RTT-I.\RTE\_freertos-test-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="543" -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o freertos-test\tim.o --omf_browse freertos-test\tim.crf --depend freertos-test\tim.d)
+F (../Core/Src/tim.c)(0x699EC102)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../BSP/Inc -I ../BSP/Src -I ../APP/Inc -I ../APP/Src -I ../RTT_easylog/easylogger/inc -I ../RTT_easylog/easylogger/plugins -I ../RTT_easylog/easylogger/port -I ../RTT_easylog/RTT-I.\RTE\_freertos-test-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="543" -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o freertos-test\tim.o --omf_browse freertos-test\tim.crf --depend freertos-test\tim.d)
 I (../Core/Inc/tim.h)(0x699971D4)
 I (../Core/Inc/main.h)(0x699BEBF7)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x698FF1E5)
@@ -298,15 +298,15 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x698FF1BF)
 I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../BSP/Inc/lcd.h)(0x696939CF)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+I (../Core/Inc/usart.h)(0x699EC5EC)
+I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../BSP/Inc/bsp_key.h)(0x699730C4)
 I (../BSP/Inc/bsp_led.h)(0x6999709C)
-I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../APP/Inc/pwm_task.h)(0x69996FAB)
 I (../APP/Inc/screen_task.h)(0x699C039C)
 I (../APP/Inc/serial_task.h)(0x699BE6E1)
-F (../Core/Src/usart.c)(0x699EB195)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../BSP/Inc -I ../BSP/Src -I ../APP/Inc -I ../APP/Src -I ../RTT_easylog/easylogger/inc -I ../RTT_easylog/easylogger/plugins -I ../RTT_easylog/easylogger/port -I ../RTT_easylog/RTT-I.\RTE\_freertos-test-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="543" -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o freertos-test\usart.o --omf_browse freertos-test\usart.crf --depend freertos-test\usart.d)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+F (../Core/Src/usart.c)(0x699EC7E7)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../BSP/Inc -I ../BSP/Src -I ../APP/Inc -I ../APP/Src -I ../RTT_easylog/easylogger/inc -I ../RTT_easylog/easylogger/plugins -I ../RTT_easylog/easylogger/port -I ../RTT_easylog/RTT-I.\RTE\_freertos-test-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="543" -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o freertos-test\usart.o --omf_browse freertos-test\usart.crf --depend freertos-test\usart.d)
+I (../Core/Inc/usart.h)(0x699EC5EC)
 I (../Core/Inc/main.h)(0x699BEBF7)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x698FF1E5)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x699167BD)
@@ -416,10 +416,10 @@ I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../Core/Inc/tim.h)(0x699971D4)
 I (../BSP/Inc/lcd.h)(0x696939CF)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+I (../Core/Inc/usart.h)(0x699EC5EC)
+I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../BSP/Inc/bsp_key.h)(0x699730C4)
 I (../BSP/Inc/bsp_led.h)(0x6999709C)
-I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../APP/Inc/pwm_task.h)(0x69996FAB)
 I (../APP/Inc/screen_task.h)(0x699C039C)
 I (../APP/Inc/serial_task.h)(0x699BE6E1)
@@ -476,10 +476,10 @@ I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../Core/Inc/tim.h)(0x699971D4)
 I (../BSP/Inc/lcd.h)(0x696939CF)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+I (../Core/Inc/usart.h)(0x699EC5EC)
+I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../BSP/Inc/bsp_key.h)(0x699730C4)
 I (../BSP/Inc/bsp_led.h)(0x6999709C)
-I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../APP/Inc/pwm_task.h)(0x69996FAB)
 I (../APP/Inc/screen_task.h)(0x699C039C)
 I (../APP/Inc/serial_task.h)(0x699BE6E1)
@@ -1233,7 +1233,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x698FF1BF)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x698FF1BF)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x698FF1BF)
-F (..\APP\Src\screen_task.c)(0x699EBDE7)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../BSP/Inc -I ../BSP/Src -I ../APP/Inc -I ../APP/Src -I ../RTT_easylog/easylogger/inc -I ../RTT_easylog/easylogger/plugins -I ../RTT_easylog/easylogger/port -I ../RTT_easylog/RTT-I.\RTE\_freertos-test-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="543" -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o freertos-test\screen_task.o --omf_browse freertos-test\screen_task.crf --depend freertos-test\screen_task.d)
+F (..\APP\Src\screen_task.c)(0x699EC70D)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../BSP/Inc -I ../BSP/Src -I ../APP/Inc -I ../APP/Src -I ../RTT_easylog/easylogger/inc -I ../RTT_easylog/easylogger/plugins -I ../RTT_easylog/easylogger/port -I ../RTT_easylog/RTT-I.\RTE\_freertos-test-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="543" -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o freertos-test\screen_task.o --omf_browse freertos-test\screen_task.crf --depend freertos-test\screen_task.d)
 I (../APP/Inc/screen_task.h)(0x699C039C)
 I (../Core/Inc/main.h)(0x699BEBF7)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x698FF1E5)
@@ -1286,10 +1286,10 @@ I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../Core/Inc/tim.h)(0x699971D4)
 I (../BSP/Inc/lcd.h)(0x696939CF)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+I (../Core/Inc/usart.h)(0x699EC5EC)
+I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../BSP/Inc/bsp_key.h)(0x699730C4)
 I (../BSP/Inc/bsp_led.h)(0x6999709C)
-I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../APP/Inc/pwm_task.h)(0x69996FAB)
 I (../APP/Inc/serial_task.h)(0x699BE6E1)
 F (..\APP\Inc\screen_task.h)(0x699C039C)()
@@ -1346,10 +1346,10 @@ I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../Core/Inc/tim.h)(0x699971D4)
 I (../BSP/Inc/lcd.h)(0x696939CF)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+I (../Core/Inc/usart.h)(0x699EC5EC)
+I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../BSP/Inc/bsp_key.h)(0x699730C4)
 I (../BSP/Inc/bsp_led.h)(0x6999709C)
-I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../APP/Inc/pwm_task.h)(0x69996FAB)
 I (../APP/Inc/screen_task.h)(0x699C039C)
 I (../APP/Inc/serial_task.h)(0x699BE6E1)
@@ -1407,10 +1407,10 @@ I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../Core/Inc/tim.h)(0x699971D4)
 I (../BSP/Inc/lcd.h)(0x696939CF)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+I (../Core/Inc/usart.h)(0x699EC5EC)
+I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../BSP/Inc/bsp_key.h)(0x699730C4)
 I (../BSP/Inc/bsp_led.h)(0x6999709C)
-I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../APP/Inc/screen_task.h)(0x699C039C)
 I (../APP/Inc/serial_task.h)(0x699BE6E1)
 F (..\APP\Inc\pwm_task.h)(0x69996FAB)()
@@ -1467,10 +1467,10 @@ I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../Core/Inc/tim.h)(0x699971D4)
 I (../BSP/Inc/lcd.h)(0x696939CF)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+I (../Core/Inc/usart.h)(0x699EC5EC)
+I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../BSP/Inc/bsp_key.h)(0x699730C4)
 I (../BSP/Inc/bsp_led.h)(0x6999709C)
-I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../APP/Inc/pwm_task.h)(0x69996FAB)
 I (../APP/Inc/screen_task.h)(0x699C039C)
 F (..\APP\Inc\serial_task.h)(0x699BE6E1)()
@@ -1526,10 +1526,10 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x698FF1BF)
 I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../Core/Inc/tim.h)(0x699971D4)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+I (../Core/Inc/usart.h)(0x699EC5EC)
+I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../BSP/Inc/bsp_key.h)(0x699730C4)
 I (../BSP/Inc/bsp_led.h)(0x6999709C)
-I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../APP/Inc/pwm_task.h)(0x69996FAB)
 I (../APP/Inc/screen_task.h)(0x699C039C)
 I (../APP/Inc/serial_task.h)(0x699BE6E1)
@@ -1589,9 +1589,9 @@ I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../Core/Inc/tim.h)(0x699971D4)
 I (../BSP/Inc/lcd.h)(0x696939CF)
-I (../Core/Inc/usart.h)(0x699EB1CA)
-I (../BSP/Inc/bsp_led.h)(0x6999709C)
+I (../Core/Inc/usart.h)(0x699EC5EC)
 I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
+I (../BSP/Inc/bsp_led.h)(0x6999709C)
 I (../APP/Inc/pwm_task.h)(0x69996FAB)
 I (../APP/Inc/screen_task.h)(0x699C039C)
 I (../APP/Inc/serial_task.h)(0x699BE6E1)
@@ -1649,14 +1649,14 @@ I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../Core/Inc/tim.h)(0x699971D4)
 I (../BSP/Inc/lcd.h)(0x696939CF)
-I (../Core/Inc/usart.h)(0x699EB1CA)
-I (../BSP/Inc/bsp_key.h)(0x699730C4)
+I (../Core/Inc/usart.h)(0x699EC5EC)
 I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
+I (../BSP/Inc/bsp_key.h)(0x699730C4)
 I (../APP/Inc/pwm_task.h)(0x69996FAB)
 I (../APP/Inc/screen_task.h)(0x699C039C)
 I (../APP/Inc/serial_task.h)(0x699BE6E1)
 F (..\BSP\Inc\bsp_led.h)(0x6999709C)()
-F (..\BSP\Src\bsp_uart.c)(0x699EB504)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../BSP/Inc -I ../BSP/Src -I ../APP/Inc -I ../APP/Src -I ../RTT_easylog/easylogger/inc -I ../RTT_easylog/easylogger/plugins -I ../RTT_easylog/easylogger/port -I ../RTT_easylog/RTT-I.\RTE\_freertos-test-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="543" -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o freertos-test\bsp_uart.o --omf_browse freertos-test\bsp_uart.crf --depend freertos-test\bsp_uart.d)
+F (..\BSP\Src\bsp_uart.c)(0x699EC70C)(--c99 -c --cpu Cortex-M4.fp.sp -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../BSP/Inc -I ../BSP/Src -I ../APP/Inc -I ../APP/Src -I ../RTT_easylog/easylogger/inc -I ../RTT_easylog/easylogger/plugins -I ../RTT_easylog/easylogger/port -I ../RTT_easylog/RTT-I.\RTE\_freertos-test-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32G4xx_DFP\1.4.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include-D__UVISION_VERSION="543" -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx-o freertos-test\bsp_uart.o --omf_browse freertos-test\bsp_uart.crf --depend freertos-test\bsp_uart.d)
 I (../BSP/Inc/bsp_uart.h)(0x699C17E7)
 I (../Core/Inc/main.h)(0x699BEBF7)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x698FF1E5)
@@ -1709,7 +1709,7 @@ I (../RTT_easylog/easylogger/inc/elog.h)(0x696D81DD)
 I (../RTT_easylog/easylogger/inc/elog_cfg.h)(0x699C1ADE)
 I (../Core/Inc/tim.h)(0x699971D4)
 I (../BSP/Inc/lcd.h)(0x696939CF)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+I (../Core/Inc/usart.h)(0x699EC5EC)
 I (../BSP/Inc/bsp_key.h)(0x699730C4)
 I (../BSP/Inc/bsp_led.h)(0x6999709C)
 I (../APP/Inc/pwm_task.h)(0x69996FAB)
@@ -1755,7 +1755,7 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h)(0x698FF1E5)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h)(0x698FF1E5)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x698FF1E5)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x698FF1E5)
-I (../Core/Inc/usart.h)(0x699EB1CA)
+I (../Core/Inc/usart.h)(0x699EC5EC)
 I (../Core/Inc/main.h)(0x699BEBF7)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x588B8344)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x588B8344)

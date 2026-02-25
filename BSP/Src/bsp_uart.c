@@ -30,8 +30,10 @@ void Uart_Init(void)
 //        #endif
 //    }
 
-	HAL_UART_Receive_IT(&huart1, &rx_data, 1);
-	HAL_TIM_Base_Start_IT(&htim7);
+	//HAL_UART_Receive_IT(&huart1, &rx_data, 1);
+	//HAL_TIM_Base_Start_IT(&htim7);
+
+    HAL_UARTEx_ReceiveToIdle_DMA(&huart1, rx_dma_buf, UART1_RX_BUF_SIZE);
 }
 
 // 定义在 bsp_uart.c 或 elog_port.c

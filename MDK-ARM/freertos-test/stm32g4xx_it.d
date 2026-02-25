@@ -53,9 +53,9 @@ freertos-test\stm32g4xx_it.o: ../Core/Inc/tim.h
 freertos-test\stm32g4xx_it.o: ../Core/Inc/main.h
 freertos-test\stm32g4xx_it.o: ../BSP/Inc/lcd.h
 freertos-test\stm32g4xx_it.o: ../Core/Inc/usart.h
+freertos-test\stm32g4xx_it.o: ../BSP/Inc/bsp_uart.h
 freertos-test\stm32g4xx_it.o: ../BSP/Inc/bsp_key.h
 freertos-test\stm32g4xx_it.o: ../BSP/Inc/bsp_led.h
-freertos-test\stm32g4xx_it.o: ../BSP/Inc/bsp_uart.h
 freertos-test\stm32g4xx_it.o: ../APP/Inc/pwm_task.h
 freertos-test\stm32g4xx_it.o: ../APP/Inc/screen_task.h
 freertos-test\stm32g4xx_it.o: ../APP/Inc/serial_task.h

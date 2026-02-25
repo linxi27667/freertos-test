@@ -54,9 +54,9 @@ freertos-test\dma.o: ../Core/Inc/tim.h
 freertos-test\dma.o: ../Core/Inc/main.h
 freertos-test\dma.o: ../BSP/Inc/lcd.h
 freertos-test\dma.o: ../Core/Inc/usart.h
+freertos-test\dma.o: ../BSP/Inc/bsp_uart.h
 freertos-test\dma.o: ../BSP/Inc/bsp_key.h
 freertos-test\dma.o: ../BSP/Inc/bsp_led.h
-freertos-test\dma.o: ../BSP/Inc/bsp_uart.h
 freertos-test\dma.o: ../APP/Inc/pwm_task.h
 freertos-test\dma.o: ../APP/Inc/screen_task.h
 freertos-test\dma.o: ../APP/Inc/serial_task.h

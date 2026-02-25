@@ -54,9 +54,9 @@ freertos-test\gpio.o: ../Core/Inc/tim.h
 freertos-test\gpio.o: ../Core/Inc/main.h
 freertos-test\gpio.o: ../BSP/Inc/lcd.h
 freertos-test\gpio.o: ../Core/Inc/usart.h
+freertos-test\gpio.o: ../BSP/Inc/bsp_uart.h
 freertos-test\gpio.o: ../BSP/Inc/bsp_key.h
 freertos-test\gpio.o: ../BSP/Inc/bsp_led.h
-freertos-test\gpio.o: ../BSP/Inc/bsp_uart.h
 freertos-test\gpio.o: ../APP/Inc/pwm_task.h
 freertos-test\gpio.o: ../APP/Inc/screen_task.h
 freertos-test\gpio.o: ../APP/Inc/serial_task.h

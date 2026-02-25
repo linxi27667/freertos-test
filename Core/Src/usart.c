@@ -21,13 +21,12 @@
 #include "usart.h"
 
 /* USER CODE BEGIN 0 */
-#define RX_MAXSIZE 128
-
 uint8_t rx_data;
-uint8_t rx_buf[RX_MAXSIZE];
+uint8_t rx_dma_buf[UART1_RX_BUF_SIZE];
+uint8_t rx_buf[UART1_RX_BUF_SIZE];
 uint8_t rx_size = 0;
 uint8_t rx_index = 0;
-uint8_t rx_timeout = 0;
+//uint8_t rx_timeout = 0;
 uint8_t f_rx_ready = 0;
 /* USER CODE END 0 */
 
@@ -170,35 +169,31 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 }
 
 /* USER CODE BEGIN 1 */
-//void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t size)
-//{
-//    if(huart->Instance == USART1)
-//    {
-//       uart_rx_msg_t rx_msg;
-//       uint16_t copy_size = (size < UART1_RX_BUF_SIZE) ? size : UART1_RX_BUF_SIZE;
-//       rx_msg.len = copy_size;
-//       memcpy(rx_msg.data, g_uart1_rx_dma_buf, copy_size);
-
-//       BaseType_t xHigherPriorityTaskWoken = pdFALSE;
-//       xQueueSendFromISR(g_uart1_rx_queue_handle, &rx_msg, &xHigherPriorityTaskWoken);
-//       portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
-
-//       HAL_UARTEx_ReceiveToIdle_DMA(&huart1, g_uart1_rx_dma_buf, UART1_RX_BUF_SIZE);
-//    }
-//}
-
-void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef *huart, uint16_t size)
 {
     if(huart->Instance == USART1)
     {
-			if(rx_index < RX_MAXSIZE -1)
-			{
-				rx_buf[rx_index++] = rx_data;
-			}
-			rx_timeout = 0;
+        uint16_t copy_size = (size < UART1_RX_BUF_SIZE - 1) ? size : UART1_RX_BUF_SIZE - 1;
+        memcpy(rx_buf, rx_dma_buf, copy_size);
+        rx_buf[copy_size] = '\0';
+        rx_size = copy_size;
+        f_rx_ready = 1;
     }
-    HAL_UART_Receive_IT(&huart1, &rx_data, 1);
-}
+    HAL_UARTEx_ReceiveToIdle_DMA(&huart1, rx_dma_buf, UART1_RX_BUF_SIZE);
+  }
+
+//void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+//{
+    //if(huart->Instance == USART1)
+    //{
+			//if(rx_index < UART1_RX_BUF_SIZE - 1)
+			//{
+				//rx_buf[rx_index++] = rx_data;
+			//}
+			//rx_timeout = 0;
+   // }
+    //HAL_UART_Receive_IT(&huart1, &rx_data, 1);
+//}
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
     if (huart->Instance == USART1) 

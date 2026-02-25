@@ -58,7 +58,7 @@ void Screen_Task(void *pvParameters)
 			{
 				uint8_t my_old_password[8];
 				uint8_t my_current_password[8];
-        for(int i = 0; i<=rx_index -1; i++)
+        for(int i = 0; i<rx_size; i++)
         {
           elog_a("Screen_Task", "rx_buf[%d] = %c", i, rx_buf[i]);
         }
@@ -81,7 +81,6 @@ void Screen_Task(void *pvParameters)
 				{
 					elog_e("PassWord", "format error");
 				}
-        rx_index = 0;
 				f_rx_ready = 0;
 			}
 				

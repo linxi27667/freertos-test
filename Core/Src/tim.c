@@ -302,17 +302,17 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         Key_Scan(my_key);
     }
 
-    if(htim->Instance == TIM7)
-    {
-      if(rx_index > 0 && f_rx_ready == 0)
-      {
-				rx_timeout++;
-				if(rx_timeout > 10)
-				{
-					f_rx_ready = 1;
-					rx_timeout = 0;
-				}
-      }
-    }
+    //(htim->Instance == TIM7)
+   //
+      //(rx_index > 0 && f_rx_ready == 0)
+     //
+			//x_timeout++;
+				//(rx_timeout > 10)
+				//
+				//_rx_ready = 1;
+				//x_timeout = 0;
+				//
+      //
+   //
 }
 /* USER CODE END 1 */
